@@ -38,8 +38,21 @@ function Board({ xIsNext, squares, onPlay }: BoardProps) {
     ? `Winner: ${winner}`
     : `Next player: ${xIsNext ? "X": "O"}`
 
+  function Button() {
+    const [count, setCount] = useState(0);
+    
+    return (
+      <>
+        <button onClick={() => setCount(count + 1)}>+1</button>
+        <br />
+        <p>count: {count}</p>
+      </>
+    )
+  }
+
   return (
     <>
+      <Button />
       <div className="status">{status}</div>
       {[0, 3, 6].map((startRow) => (
         <div key={startRow} className="board-row">
